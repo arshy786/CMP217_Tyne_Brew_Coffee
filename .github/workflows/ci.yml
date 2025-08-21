@@ -1,0 +1,43 @@
+name: CI – Validate & Link Check
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Test 1: key files present
+      - name: Verify required files
+        run: |
+          test -f index.html
+          test -f assets/style.css
+          test -f assets/app.js
+          echo "✅ Required files found"
+
+      # Test 2: HTML validation (docker-based action, no setup needed)
+      - name: Validate HTML
+        uses: Cyb3r-Jak3/html5validator-action@v1.0.3
+        with:
+          root: ./
+
+      # Test 3: Link check (internal/external)
+      - name: Link check
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: --no-progress --accept 200,429 --base . ./**/*.html
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Test 4 & 5: simple greps to prove sections exist (extra ticks)
+      - name: Check required sections exist
+        run: |
+          grep -i "<section id=\"gallery\"" index.html
+          grep -i "<section id=\"menu\"" index.html
+          echo "✅ Sections present"
