@@ -2,9 +2,9 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tyne Brew Coffee</title>
-  <meta name="description" content="Tyne Brew Coffee — specialty coffee, homemade bakes and a warm welcome by the Tyne." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tyne Brew Coffee | Home</title>
+  <meta name="description" content="Tyne Brew Coffee — Newcastle Quayside's finest independent coffee house, serving premium local brews, Yorkshire Tea, and exclusive Ringtons biscuits." />
   <link rel="stylesheet" href="assets/style.css" />
   <script defer src="assets/app.js"></script>
 </head>
@@ -18,19 +18,21 @@
       <nav class="nav">
         <a href="index.html" class="active">Home</a>
         <a href="about.html">About</a>
+        <a href="products.html">Products</a>
         <a href="#menu">Menu</a>
         <a href="#gallery">Gallery</a>
         <a href="#visit">Visit</a>
-        <button id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark">🌙</button>
+        <a href="contact.html">Contact</a>
+        <input type="search" id="siteSearch" placeholder="Search..." aria-label="Search site" />
+        <button id="themeToggle" aria-label="Toggle light/dark mode" title="Toggle theme">🌙</button>
       </nav>
     </div>
   </header>
 
-  <!-- change the file below to any image you fancy from /images -->
   <section class="hero" style="--hero:url('images/tyne_bridge.png')">
     <div class="wrap hero-inner">
       <h1>Sip the Quayside</h1>
-      <p>Freshly roasted coffee, homemade bakes and a warm welcome — right by the River Tyne.</p>
+      <p>Enjoy hand-roasted local coffee, artisan teas and treats with a view of the Tyne.</p>
       <div class="cta">
         <a href="#menu" class="btn btn-primary">View Menu</a>
         <a href="#gallery" class="btn btn-ghost">See Photos</a>
@@ -40,49 +42,74 @@
   </section>
 
   <main>
-    <!-- highlights -->
     <section class="section highlights">
       <div class="wrap grid-3">
-        <article class="pill"><h3>North East Pride</h3><p>Independent, local, and community first.</p></article>
-        <article class="pill"><h3>Ethically Sourced</h3><p>Beans traced farm-to-cup with fair pricing.</p></article>
-        <article class="pill"><h3>Fresh Bakes</h3><p>Brownies, traybakes and seasonal treats daily.</p></article>
+        <article class="pill">
+          <h3>North East Pride</h3>
+          <p>Born and brewed in Newcastle with passion and pride.</p>
+        </article>
+        <article class="pill">
+          <h3>Legacy in Every Sip</h3>
+          <p>Established in 1905. Still family-run today.</p>
+        </article>
+        <article class="pill">
+          <h3>Biscuits & Brews</h3>
+          <p>Partnered with Ringtons — legendary local tea & biscuit specialists.</p>
+        </article>
       </div>
     </section>
 
-    <!-- menu -->
     <section id="menu" class="section menu">
       <div class="wrap">
-        <h2>Favourites</h2>
+        <h2>Our Signature Favourites</h2>
         <div class="cards">
           <article class="card">
-            <h3>Flat White</h3><p>Velvety micro-foam with a bold double shot.</p><span class="price">£3.20</span>
+            <h3>Dark Roast Coffee</h3>
+            <p>Boldest blend with earthy undertones and smoky finish. For lovers of strong coffee with character.</p>
           </article>
           <article class="card">
-            <h3>Mocha</h3><p>Chocolate and espresso — a proper hug in a mug.</p><span class="price">£3.40</span>
+            <h3>Espresso</h3>
+            <p>Italian-style double shot with rich crema and robust flavour. Ideal for purists and flat white fans.</p>
           </article>
           <article class="card">
-            <h3>Caramel Latte</h3><p>Smooth latte with a drizzle of caramel.</p><span class="price">£3.60</span>
+            <h3>Medium Roast</h3>
+            <p>Nutty aroma with hints of caramel. Perfectly balanced for lattes or morning filter brews.</p>
           </article>
           <article class="card">
-            <h3>House Brownie</h3><p>Rich, fudgy and baked fresh daily.</p><span class="price">£2.80</span>
+            <h3>Decaf Coffee</h3>
+            <p>CO₂ decaffeinated without compromising body or flavour. Smooth and satisfying, minus the buzz.</p>
+          </article>
+          <article class="card">
+            <h3>Yorkshire Tea (Original)</h3>
+            <p>British classic. Strong and reliable. Blended to pair perfectly with milk or a Ringtons biscuit.</p>
+          </article>
+          <article class="card">
+            <h3>Yorkshire Tea (Decaf)</h3>
+            <p>All the flavour, none of the caffeine. Great for evenings or caffeine-conscious mornings.</p>
+          </article>
+          <article class="card">
+            <h3>Zuma Hot Chocolate</h3>
+            <p>Velvety dark, milk, or white blends. Steamed with oat, soya, or dairy milk to your liking.</p>
+          </article>
+          <article class="card">
+            <h3>Branded Souvenir Mug</h3>
+            <p>Dishwasher-safe ceramic mug with Tyne Brew logo — a perfect gift or memento from your visit.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- gallery (auto-built by app.js using your filenames) -->
     <section id="gallery" class="section gallery">
       <div class="wrap">
         <h2>Gallery</h2>
-        <p class="muted">Click any photo to open it fullscreen. Use ← → to browse.</p>
+        <p class="muted">Click an image to enlarge. Use arrow keys to browse.</p>
         <div id="galleryGrid" class="masonry"></div>
       </div>
     </section>
 
-    <!-- testimonials (simple slider) -->
     <section class="section testimonials">
       <div class="wrap">
-        <h2>What People Say</h2>
+        <h2>Customer Reviews</h2>
         <div class="slider" id="quoteSlider" aria-live="polite">
           <blockquote>“Best mocha on the Quayside — friendly staff and spot-on vibes.” <cite>— Sam, Heaton</cite></blockquote>
           <blockquote>“Proper lush brownies. Perfect post-walk treat with the dog.” <cite>— Aisha, Jesmond</cite></blockquote>
@@ -91,29 +118,30 @@
       </div>
     </section>
 
-    <!-- visit -->
     <section id="visit" class="section visit">
       <div class="wrap visit-inner">
         <div>
           <h2>Visit Us</h2>
-          <p>Quayside, Newcastle upon Tyne<br/>NE1 • Open daily 8–6</p>
-          <p>Email: hello@tynebrew.co.uk • 0191 000 0000</p>
-          <div class="badges"><span>Free Wi-Fi</span><span>Vegan Options</span><span>Dog Friendly</span></div>
-          <p class="muted">Follow us on Instagram for specials and pop-ups.</p>
+          <p>22 Quayside Road, Newcastle upon Tyne<br>NE1 3RL • Open daily 8am – 6pm</p>
+          <p>Email: hello@tynebrew.co.uk • Tel: <a href="tel:01913597482">0191 359 7482</a></p>
+          <div class="badges">
+            <span>Free Wi-Fi</span>
+            <span>Vegan Options</span>
+            <span>Dog Friendly</span>
+          </div>
+          <p class="muted">Follow us on Instagram for daily specials, updates and offers.</p>
         </div>
-        <iframe class="map" title="Map" loading="lazy"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=-1.617%2C54.969%2C-1.595%2C54.978&layer=mapnik"></iframe>
+        <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-1.617%2C54.969%2C-1.595%2C54.978&layer=mapnik"></iframe>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>© 2025 Tyne Brew Coffee • Built for CMP217 DevOps</p>
+      <p>© 2025 Tyne Brew Coffee • Built proudly for CMP217 DevOps • Handmade in Newcastle upon Tyne</p>
     </div>
   </footer>
 
-  <!-- lightbox -->
   <div id="lightbox" class="lightbox" aria-hidden="true">
     <button class="lb-btn close" aria-label="Close">×</button>
     <button class="lb-btn prev" aria-label="Previous">‹</button>

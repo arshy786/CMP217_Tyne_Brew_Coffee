@@ -6,31 +6,48 @@ if (toggle) {
   });
 }
 
-// === Gallery Images ===
-// (update if you add or rename files in your images/ folder)
+// === Smooth Scroll ===
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    if (this.getAttribute('href') !== '#') {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behaviour: 'smooth' });
+      }
+    }
+  });
+});
+
+// === Page Fade-In Animation ===
+window.addEventListener('load', () => {
+  document.body.style.opacity = 1;
+});
+
+// === Scroll to Top Button ===
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) {
+    backToTop?.classList.add('visible');
+  } else {
+    backToTop?.classList.remove('visible');
+  }
+});
+backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behaviour: 'smooth' }));
+
+// === Dynamic Product Gallery (if used) ===
 const images = [
-  'dark.png',
-  'decaf.png',
-  'espresso.png',
-  'founder.png',
-  'light.png',
-  'logo.png',
-  'medium.png',
-  'mug.png',
-  'ringtons_biscuit_box.png',
-  'tyne_bridge.png',
-  'yorkshire_decaf.png',
-  'yorkshire_tea.png',
-  'zuma_dark_hot_chocolate.png',
-  'zuma_hot_chocolate.png',
-  'zuma_white_hot_chocolate.png'
+  'dark.png', 'decaf.png', 'espresso.png', 'founder.png',
+  'light.png', 'logo.png', 'medium.png', 'mug.png',
+  'ringtons_biscuit_box.png', 'tyne_bridge.png', 'yorkshire_decaf.png',
+  'yorkshire_tea.png', 'zuma_dark_hot_chocolate.png',
+  'zuma_hot_chocolate.png', 'zuma_white_hot_chocolate.png'
 ];
 
-// Build gallery
 const galleryGrid = document.getElementById('galleryGrid');
 if (galleryGrid) {
   const fragment = document.createDocumentFragment();
-  images.forEach((name) => {
+  images.forEach(name => {
     const img = new Image();
     img.src = `images/${name}`;
     img.alt = 'Tyne Brew Coffee photo';
@@ -72,7 +89,7 @@ if (btnPrev) btnPrev.onclick = () => show(-1);
 if (btnNext) btnNext.onclick = () => show(1);
 
 document.addEventListener('keydown', (e) => {
-  if (lightbox && lightbox.style.display === 'flex') {
+  if (lightbox?.style.display === 'flex') {
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') show(-1);
     if (e.key === 'ArrowRight') show(1);
@@ -89,4 +106,20 @@ if (quotes.length) {
     i = (i + 1) % quotes.length;
     quotes[i].classList.add('active');
   }, 3500);
+}
+
+// === Live Product Search ===
+const searchInput = document.getElementById('productSearch');
+const productCards = document.querySelectorAll('.product-card');
+
+if (searchInput && productCards.length) {
+  searchInput.addEventListener('input', () => {
+    const term = searchInput.value.toLowerCase();
+    productCards.forEach(card => {
+      const title = card.querySelector('h3')?.innerText.toLowerCase();
+      const desc = card.querySelector('p')?.innerText.toLowerCase();
+      const matches = title?.includes(term) || desc?.includes(term);
+      card.style.display = matches ? 'block' : 'none';
+    });
+  });
 }
